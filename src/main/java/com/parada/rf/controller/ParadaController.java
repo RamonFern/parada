@@ -59,6 +59,7 @@ public class ParadaController {
 	
 	
 	@GetMapping("/{id}")
+	@Operation(summary = "Buscar parada por id")
 	public ResponseEntity<ParadaDTO> findById(@PathVariable Long id) {
 		Parada parada = paradaService.findById(id);
 		ParadaDTO result = paradaMapper.toParadaDTO(parada);
@@ -66,6 +67,7 @@ public class ParadaController {
 	}
 	
 	@PutMapping("/{id}")
+	@Operation(summary = "Atualizar parada")
 	public ResponseEntity<ParadaDTO> update(@PathVariable Long id, @RequestBody ParadaCreateDTO paradaCreteDTO) {
 		Parada paradaUpdate = paradaMapper.toParadaCreate(paradaCreteDTO);
 		Parada parada = paradaService.update(id, paradaUpdate);
@@ -73,12 +75,14 @@ public class ParadaController {
 	}
 	
 	@DeleteMapping("/{id}")
+	@Operation(summary = "Excluir parada")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		paradaService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
 	@PostMapping("/{id}")
+	@Operation(summary = "Fazer check-out de parada")
     public ResponseEntity<ParadaDTO> checkOut(@PathVariable Long id) {
 		Parada parada = paradaService.checkOut(id);
         return ResponseEntity.ok(paradaMapper.toParadaDTO(parada));

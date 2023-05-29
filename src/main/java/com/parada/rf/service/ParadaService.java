@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.parada.rf.domain.exception.ParadaNotFoundException;
 import com.parada.rf.domain.model.Parada;
 import com.parada.rf.repository.ParadaRepository;
 
@@ -33,15 +34,34 @@ public class ParadaService {
 		paradaRepository.save(paradaCreate);
 		return paradaCreate;
 	}
+
+	@Transactional(readOnly = true)
+	public Parada findById(Long id) {
+		return paradaRepository.findById(id).orElseThrow(() -> new ParadaNotFoundException(id));
+	}
+
+	@Transactional
+	public Parada update(Long id, Parada paradaUpdate) {
+		Parada parada = findById(id);
+		parada.setCor(paradaUpdate.getCor());
+		parada.setEstado(paradaUpdate.getEstado());
+		parada.setModelo(paradaUpdate.getModelo());
+		parada.setPlaca(paradaUpdate.getPlaca());
+		paradaRepository.save(parada);
+		return parada;
+	}
 	
 	/*
 	 * @Transactional
-	public Estacionamento create(Estacionamento estacionamentoCreate) {
-		String uuid = getUUID();
-		estacionamentoCreate.setId(uuid);
-		estacionamentoCreate.setDataEntrada(LocalDateTime.now());
-		estacionamentoRepository.save(estacionamentoCreate);
-		return estacionamentoCreate;
+	public Estacionamento update(String id, Estacionamento estacionamentoCreate) {
+		Estacionamento estacionamento = findById(id);
+		estacionamento.setCor(estacionamentoCreate.getCor());
+		estacionamento.setEstado(estacionamentoCreate.getEstado());
+		estacionamento.setModelo(estacionamentoCreate.getModelo());
+		estacionamento.setPlaca(estacionamentoCreate.getPlaca());
+		estacionamentoRepository.save(estacionamento);
+		return estacionamento;
+
 	}*/
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -71,13 +72,19 @@ public class ParadaController {
         return ResponseEntity.ok(paradaMapper.toParadaDTO(parada));
 	}
 	
-	/*
-	 * @PutMapping("/{id}")
-    public ResponseEntity<EstacionamentoDTO> update(@PathVariable String id, @RequestBody EstacionamentoCreateDTO estacionamentoCreteDTO) {
-		Estacionamento estacionamentoUpdate = estacionamentoMapper.toEstacionamentoCreate(estacionamentoCreteDTO);
-		Estacionamento estacionamento = estacionamentoService.update(id, estacionamentoUpdate);
-        return ResponseEntity.ok(estacionamentoMapper.toEstacionamentoDTO(estacionamento));
-    }*/
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> delete(@PathVariable Long id) {
+		paradaService.delete(id);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@PostMapping("/{id}")
+    public ResponseEntity<ParadaDTO> checkOut(@PathVariable Long id) {
+		Parada parada = paradaService.checkOut(id);
+        return ResponseEntity.ok(paradaMapper.toParadaDTO(parada));
+    }
+	
+	
 	
 	
 	

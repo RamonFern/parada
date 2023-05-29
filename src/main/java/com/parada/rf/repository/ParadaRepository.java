@@ -10,4 +10,6 @@ public interface ParadaRepository extends JpaRepository<Parada, String>{
 
 	Optional<Parada> findById(Long id);
 
+	void deleteById(Long id);
+
 }

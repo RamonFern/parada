@@ -50,18 +50,22 @@ public class ParadaService {
 		paradaRepository.save(parada);
 		return parada;
 	}
+
+	@Transactional
+	public void delete(Long id) {
+		findById(id);
+		paradaRepository.deleteById(id);
+	}
+
+	public Parada checkOut(Long id) {
+		Parada parada = findById(id);
+		parada.setDatasaida(LocalDateTime.now());
+		parada.setValor(ParadaCheckOut.getBill(parada));
+		paradaRepository.save(parada);
+		return parada;
+	}
 	
 	/*
-	 * @Transactional
-	public Estacionamento update(String id, Estacionamento estacionamentoCreate) {
-		Estacionamento estacionamento = findById(id);
-		estacionamento.setCor(estacionamentoCreate.getCor());
-		estacionamento.setEstado(estacionamentoCreate.getEstado());
-		estacionamento.setModelo(estacionamentoCreate.getModelo());
-		estacionamento.setPlaca(estacionamentoCreate.getPlaca());
-		estacionamentoRepository.save(estacionamento);
-		return estacionamento;
-
-	}*/
+	*/
 
 }

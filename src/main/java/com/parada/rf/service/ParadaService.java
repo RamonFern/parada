@@ -61,11 +61,12 @@ public class ParadaService {
 		Parada parada = findById(id);
 		parada.setDatasaida(LocalDateTime.now());
 		parada.setValor(ParadaCheckOut.getBill(parada));
+		parada.setTempo(ParadaCheckOut.getTempo(parada));
 		paradaRepository.save(parada);
 		return parada;
 	}
 	
-	/*
-	*/
+
+	
 
 }

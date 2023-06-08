@@ -26,7 +26,8 @@ import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("/parada")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class ParadaController {
 	
 	private final ParadaService paradaService;
@@ -87,6 +88,21 @@ public class ParadaController {
 		Parada parada = paradaService.checkOut(id);
         return ResponseEntity.ok(paradaMapper.toParadaDTO(parada));
     }
+	
+	
+//	@PostMapping("/{id}")
+//	@Operation(summary = "Fazer check-out de parada")
+//    public ResponseEntity<ParadaDTO> parcialCheckOut(@PathVariable Long id) {
+//		Parada parada = paradaService.checkOut(id);
+//        return ResponseEntity.ok(paradaMapper.toParadaDTO(parada));
+//    }
+	
+//	@PostMapping("/parcial/{id}")
+//	@Operation(summary = "Fazer check-out de parada")
+//    public Double parcialCheckOut(@PathVariable Long id) {
+//		Double valor = paradaService.parcialCheckOut(id);
+//        return valor;
+//    }
 	
 	
 	

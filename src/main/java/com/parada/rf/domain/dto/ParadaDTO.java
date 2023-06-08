@@ -21,4 +21,5 @@ public class ParadaDTO {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime datasaida;
     private Double valor;
+    private String tempo;
 }

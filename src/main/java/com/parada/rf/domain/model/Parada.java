@@ -30,6 +30,8 @@ public class Parada {
     private LocalDateTime dataEntrada;
     private LocalDateTime datasaida;
     private Double valor;
+    private String tempo;
+    
 	
 }
 

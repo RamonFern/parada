@@ -89,13 +89,14 @@ public class ParadaController {
         return ResponseEntity.ok(paradaMapper.toParadaDTO(parada));
     }
 	
-	
-//	@PostMapping("/{id}")
-//	@Operation(summary = "Fazer check-out de parada")
+//	@CrossOrigin(origins = "http://localhost:4200/parada/parcial/{id}")
+//	@GetMapping("/parcial/{id}")
+//	@Operation(summary = "Parcial de check-out")
 //    public ResponseEntity<ParadaDTO> parcialCheckOut(@PathVariable Long id) {
-//		Parada parada = paradaService.checkOut(id);
+//		Parada parada = paradaService.parcialCheckOut(id);
 //        return ResponseEntity.ok(paradaMapper.toParadaDTO(parada));
 //    }
+	
 	
 //	@PostMapping("/parcial/{id}")
 //	@Operation(summary = "Fazer check-out de parada")

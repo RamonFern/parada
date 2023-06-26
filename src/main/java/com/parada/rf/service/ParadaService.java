@@ -66,6 +66,14 @@ public class ParadaService {
 		return parada;
 	}
 	
+//	public Parada parcialCheckOut(Long id) {
+//		Parada parada = findById(id);
+//		parada.setDatasaida(LocalDateTime.now());
+//		parada.setValor(ParadaCheckOut.getBill(parada));
+//		parada.setTempo(ParadaCheckOut.getTempo(parada));
+//		
+//		return parada;
+//	}
 
 	
 

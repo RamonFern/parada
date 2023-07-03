@@ -17,7 +17,7 @@ public class ParadaDTO {
     private String modelo;
     private String cor;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-    private LocalDateTime dataEntrada;
+    private LocalDateTime dataentrada;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime datasaida;
     private Double valor;

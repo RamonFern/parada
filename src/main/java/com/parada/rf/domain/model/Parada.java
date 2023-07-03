@@ -27,7 +27,7 @@ public class Parada {
 	private String estado;
 	private String modelo;
 	private String cor;
-    private LocalDateTime dataEntrada;
+    private LocalDateTime dataentrada;
     private LocalDateTime datasaida;
     private Double valor;
     private String tempo;

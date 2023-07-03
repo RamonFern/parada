@@ -14,11 +14,11 @@ public class ParadaCheckOut {
 	public static final double VALOR_DIARIA = 20.00;
 
 	public static Double getBill(Parada parada) {
-		return getBill(parada.getDataEntrada(), parada.getDatasaida());
+		return getBill(parada.getDataentrada(), parada.getDatasaida());
 	}
 	
 	public static String getTempo(Parada parada) {
-		return getTime(parada.getDataEntrada(), parada.getDatasaida());
+		return getTime(parada.getDataentrada(), parada.getDatasaida());
 	}
 	
 	 private static Double getBill(LocalDateTime dataEntrada, LocalDateTime dataSaida) {

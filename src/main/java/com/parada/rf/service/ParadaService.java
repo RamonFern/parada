@@ -30,7 +30,7 @@ public class ParadaService {
 
 	@Transactional
 	public Parada create(Parada paradaCreate) {
-		paradaCreate.setDataEntrada(LocalDateTime.now());
+		paradaCreate.setDataentrada(LocalDateTime.now());
 		paradaRepository.save(paradaCreate);
 		return paradaCreate;
 	}
